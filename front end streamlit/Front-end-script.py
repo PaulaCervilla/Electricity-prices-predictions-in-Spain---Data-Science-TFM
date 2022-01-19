@@ -4,12 +4,10 @@ import numpy as np
 pd.options.display.max_columns = None
 import warnings
 warnings.filterwarnings("ignore")
-import seaborn as sns
 import matplotlib.pyplot as plt
 import matplotlib.dates as mdates
 from sklearn.metrics import mean_squared_error
 from math import sqrt
-from statsmodels.tsa.arima_model import ARIMAResults
 import datetime
 import re
 import base64
@@ -19,7 +17,7 @@ st.markdown(
     """
     <style>
     .reportview-container {
-        background: url("https://github.com/PaulaCervilla/Electricity-prices-predictions-in-Spain---Data-Science-TFM/blob/main/front%20end%20streamlit/electricity.jpg?raw=true");
+        background: url("https://raw.githubusercontent.com/PaulaCervilla/Electricity-prices-predictions-in-Spain---Data-Science-TFM/main/front%20end%20streamlit/electricity3.jpeg");
 	background-size: cover
     }
 
