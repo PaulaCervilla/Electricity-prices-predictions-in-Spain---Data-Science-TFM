@@ -36,7 +36,7 @@ st.title("Electricity price predictions in Spain. Data Science Master's Disserta
 st.write("The aim of this project was to predict the overall daily electricity price in Spain, after deeply studying and understanding all the relevant variables that make up the mentioned price.")
 
 
-path = "/home/dsc/CarpetaCompartida/TFM/electricity_brent_weather.csv"
+path = "https://raw.githubusercontent.com/PaulaCervilla/Electricity-prices-predictions-in-Spain---Data-Science-TFM/main/front%20end%20streamlit/electricity_brent_weather.csv"
 
 electricity_brent_weather = pd.read_csv(path, header= 0, dtype = str, engine= "python", sep=";", error_bad_lines= False, encoding= "utf-8")
 
@@ -156,28 +156,25 @@ st.subheader("In order to forecast electricity prices, ARIMA models were used, u
 
 st.header('ARIMA order(10,1,0)')
 
-loaded_ARIMA = ARIMAResults.load("ARIMA2021.pkl")
 
-#Creating new rows for 1 year ahead predictions.
+path = "https://raw.githubusercontent.com/PaulaCervilla/Electricity-prices-predictions-in-Spain---Data-Science-TFM/main/front%20end%20streamlit/predictions_actuals_ARIMA_1321.csv"
 
-rows_predictions = pd.DataFrame(index = pd.date_range("2021-10-01", periods = 365, freq = "D")).rename_axis("Date")
-rows_predictions.index = pd.DatetimeIndex(rows_predictions.index, dayfirst= True)
+predictions = pd.read_csv(path, header= 0, dtype = str, engine= "python", sep=";", error_bad_lines= False, encoding= "utf-8")
 
-#Out-of-Sample Forecast
+predictions.set_index("Date", inplace=True)
+predictions["Date"] = predictions.index
+predictions["Date"] = pd.to_datetime(predictions['Date'], format= "%d/%m/%Y", errors = "ignore")
+predictions.index = pd.DatetimeIndex(predictions.index, dayfirst= True)
+predictions['Total €/MWh'] = pd.to_numeric(predictions['Total €/MWh'],errors= "raise", downcast="float")
+predictions['pred'] = pd.to_numeric(predictions['pred'],errors= "raise", downcast="float")
 
-rows_predictions["pred"] = loaded_ARIMA.forecast(steps = 365)
-
-#Concatenating predictions to electricity prices dataframe
-
-electricity_price_predictions = pd.concat([electricity_price, pd.DataFrame(rows_predictions)], ignore_index=False)
-electricity_price_predictions.index = pd.DatetimeIndex(electricity_price_predictions.index, dayfirst= True)
 
 #Plotting actual values and predictions out of sample
 
 fig, ax = plt.subplots(figsize=(10,7));
 
-ax.plot(electricity_price_predictions.index, electricity_price_predictions["Total €/MWh"].values)
-ax.plot(electricity_price_predictions.index, electricity_price_predictions["pred"].values, color='red')
+ax.plot(predictions.index, predictions["Total €/MWh"].values)
+ax.plot(predictions.index, predictions["pred"].values, color='red')
 
 st.pyplot(fig)
 
@@ -187,7 +184,7 @@ with st.expander("Notes"):
 
 #Importing predictions ARIMA order(10,1,0)
 
-predictions = pd.read_csv("/home/dsc/CarpetaCompartida/TFM/predictions_ARIMA_1321.csv", header= 0, dtype = str, engine= "python", sep=";", error_bad_lines= False, encoding= "utf-8")
+predictions = pd.read_csv("https://raw.githubusercontent.com/PaulaCervilla/Electricity-prices-predictions-in-Spain---Data-Science-TFM/main/front%20end%20streamlit/predictions_ARIMA_1321.csv", header= 0, dtype = str, engine= "python", sep=";", error_bad_lines= False, encoding= "utf-8")
 
 predictions.set_index("Date", inplace=True)
 predictions["Date"] = predictions.index
@@ -241,28 +238,25 @@ st.header('ARIMA order(4,1,5)')
 
 st.write("This ARIMA model was fitted with different parameters to make it more precise and optimal:")
 
-loaded_optimisedARIMA = ARIMAResults.load("optimisedARIMA2021.pkl")
+path = "https://raw.githubusercontent.com/PaulaCervilla/Electricity-prices-predictions-in-Spain---Data-Science-TFM/main/front%20end%20streamlit/predictions_actuals_optARIMA_1321.csv"
 
-#Creating new rows for 1 year ahead predictions.
+predictions = pd.read_csv(path, header= 0, dtype = str, engine= "python", sep=";", error_bad_lines= False, encoding= "utf-8")
 
-rows_predictions2 = pd.DataFrame(index = pd.date_range("2021-10-01", periods = 365, freq = "D")).rename_axis("Date")
-rows_predictions2.index = pd.DatetimeIndex(rows_predictions2.index, dayfirst= True)
+predictions.set_index("Date", inplace=True)
+predictions["Date"] = predictions.index
+predictions["Date"] = pd.to_datetime(predictions['Date'], format= "%d/%m/%Y", errors = "ignore")
+predictions.index = pd.DatetimeIndex(predictions.index, dayfirst= True)
+predictions['Total €/MWh'] = pd.to_numeric(predictions['Total €/MWh'],errors= "raise", downcast="float")
+predictions['pred'] = pd.to_numeric(predictions['pred'],errors= "raise", downcast="float")
 
-#Out-of-Sample Forecast
 
-rows_predictions2["pred"] = loaded_optimisedARIMA.forecast(steps = 365)
-
-#Concatenating predictions to electricity prices dataframe
-
-electricity_price_predictions = pd.concat([electricity_price, pd.DataFrame(rows_predictions2)], ignore_index=False)
-electricity_price_predictions.index = pd.DatetimeIndex(electricity_price_predictions.index, dayfirst= True)
 
 #Plotting actual values and predictions out of sample
 
 fig, ax = plt.subplots(figsize=(10,7));
 
-ax.plot(electricity_price_predictions.index, electricity_price_predictions["Total €/MWh"].values)
-ax.plot(electricity_price_predictions.index, electricity_price_predictions["pred"].values, color='red')
+ax.plot(predictions.index, predictions["Total €/MWh"].values)
+ax.plot(predictions.index, predictions["pred"].values, color='red')
 
 st.pyplot(fig)
 
@@ -272,7 +266,7 @@ with st.expander("Notes"):
 
 #Importing predictions ARIMA order(4,1,5)
 
-predictions_optARIMA = pd.read_csv("/home/dsc/CarpetaCompartida/TFM/predictions_optimisedARIMA_1321.csv", header= 0, dtype = str, engine= "python", sep=";", error_bad_lines= False, encoding= "utf-8")
+predictions_optARIMA = pd.read_csv("https://raw.githubusercontent.com/PaulaCervilla/Electricity-prices-predictions-in-Spain---Data-Science-TFM/main/front%20end%20streamlit/predictions_optimisedARIMA_1321.csv", header= 0, dtype = str, engine= "python", sep=";", error_bad_lines= False, encoding= "utf-8")
 
 predictions_optARIMA.set_index("Date", inplace=True)
 predictions_optARIMA["Date"] = predictions_optARIMA.index
@@ -333,7 +327,7 @@ st.subheader("Firstly, let's see historical data for these variables:")
 
 #Loading VAR predictions
 
-path = "/home/dsc/CarpetaCompartida/TFM/predictions_VAR_1321.csv"
+path = "https://raw.githubusercontent.com/PaulaCervilla/Electricity-prices-predictions-in-Spain---Data-Science-TFM/main/front%20end%20streamlit/predictions_VAR_1321.csv"
 
 forecast_VAR = pd.read_csv(path, header= 0, dtype = str, engine= "python", sep=";", error_bad_lines= False, encoding= "utf-8", names = (["Date","Energía final MWh", "Total €/MWh", "Precio cierre Brent","Tmax", "Tmin", "Vmax" ]))
 
