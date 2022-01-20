@@ -29,7 +29,7 @@ st.markdown(
 
 #st.set_page_config(layout="wide")
 
-st.title("Electricity price predictions in Spain. Data Science Master's Dissertation by Paula Cervilla García")
+st.title("Electricity Price Predictions In Spain. Data Science Master's Dissertation By Paula Cervilla García")
 
 st.write("The aim of this project was to predict the overall daily electricity price in Spain, after deeply studying and understanding all the relevant variables that make up the mentioned price.")
 
@@ -39,7 +39,7 @@ path = "https://raw.githubusercontent.com/PaulaCervilla/Electricity-prices-predi
 electricity_brent_weather = pd.read_csv(path, header= 0, dtype = str, engine= "python", sep=";", error_bad_lines= False, encoding= "utf-8")
 
  
-st.header('Electricity prices, Brent crude oil futures and weather variables')
+st.header('Electricity Prices, Brent Crude Oil Futures And Weather Variables')
 
 st.write("Here you can explore the raw data used to forecast future electricity prices:")
 
@@ -104,7 +104,7 @@ st.write("Below there is a graph showing historical electricity prices since 201
 
 electricity_brent_weather.index = pd.DatetimeIndex(electricity_brent_weather.index, dayfirst= True)
 
-st.subheader('Electricity prices 2013-2021')
+st.subheader('Electricity Prices 2013-2021')
 
 st.line_chart(electricity_brent_weather["Total €/MWh"])
 
@@ -152,7 +152,7 @@ electricity_price = pd.DataFrame(models_dataset["Total €/MWh"])
 
 st.subheader("In order to forecast electricity prices, ARIMA models were used, using the historical electricity prices to predict future prices of the same variable. Below in red you can see the predictions:")
 
-st.header('ARIMA order(10,1,0)')
+st.header('ARIMA Order(10,1,0)')
 
 
 path = "https://raw.githubusercontent.com/PaulaCervilla/Electricity-prices-predictions-in-Spain---Data-Science-TFM/main/front%20end%20streamlit/predictions_actuals_ARIMA_1321.csv"
@@ -219,7 +219,7 @@ def df_filter(message,df):
 	return filtered_df
 
 
-st.subheader('Date filter:')
+st.subheader('Date Filter:')
 filtered_df = df_filter('Move sliders to filter dataframe with Actual prices and Predictions',predictions)
 
 st.subheader('Data Frame')
@@ -231,7 +231,7 @@ st.line_chart(filtered_df['Total €/MWh + Predictions'])
 
 #Plotting ARIMA results(order(4,1,5)
 
-st.header('ARIMA order(4,1,5)')
+st.header('ARIMA Order(4,1,5)')
 
 st.write("This ARIMA model was fitted with different parameters to make it more precise and optimal:")
 
@@ -299,7 +299,7 @@ def df_filter2(message,df):
 
 	return filtered_df2
 
-st.subheader('Date filter:')
+st.subheader('Date Filter:')
 filtered_df2 = df_filter2('Move sliders to filter dataframe with Actual prices and Predictions',predictions_optARIMA)
 
 st.subheader('Data Frame')
@@ -320,7 +320,7 @@ st.write('The following variables were used: Final energy that was negotiated fo
 
 st.header('VAR model')
 
-st.subheader("Firstly, let's see historical data for these variables:")
+st.subheader("Firstly, Let's See Historical Data For These Variables:")
 
 #Loading VAR predictions
 
@@ -345,14 +345,14 @@ forecast_VAR = forecast_VAR[["Date", "Energía final MWh", "Total €/MWh", "Pre
 
 st.write("Below there is a graph showing historical Energy that was negotiated for each day measured in MWh since 2013:")
 
-st.subheader('Total energy MWh 2013-2021')
+st.subheader('Total Energy MWh 2013-2021')
 
 st.line_chart(electricity_brent_weather["Energía final MWh"])
 
 
 st.write("Below there is a graph showing historical Brent Oil crude futures closing price of the session for the day in EUR since 2013:")
 
-st.subheader('Brent Oil crude futures closing price of the session for the day in EUR 2013-2021')
+st.subheader('Brent Oil Crude Futures Closing Price Of The Session For The Day In EUR 2013-2021')
 
 st.line_chart(electricity_brent_weather["Precio cierre Brent"])
 
@@ -398,7 +398,7 @@ def df_filter3(message,df):
 
 	return filtered_df3
 
-st.subheader('Date filter:')
+st.subheader('Date Filter:')
 filtered_df3 = df_filter3('Move sliders to filter dataframe with Predictions for 1 year ahead starting on the 10th of October 2021',forecast_VAR)
 
 st.subheader('Data Frame')
