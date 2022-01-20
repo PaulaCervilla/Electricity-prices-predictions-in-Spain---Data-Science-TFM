@@ -201,7 +201,6 @@ predictions = predictions[["Date", "Total €/MWh + Predictions", "Total €/MWh
 
 #Datetime filter
 
-
 def df_filter(message,df):
 
 
@@ -378,7 +377,7 @@ st.subheader('Average Wind Speed (Km/h) 2013-2021')
 st.line_chart(electricity_brent_weather["Vmax"])
 
 with st.expander("Notes"):
-     st.write("Weather data from 737 weather station was used. In oder to get to a single daily value, a weighted average by each Spanish province population was done. In this way, the values for those provinces with more inhabitants value more, in order to get to a final daily number.")
+     st.write("Weather data from 737 weather stations was used. In oder to get to a single daily value, a weighted average by each Spanish province population was done. In this way, the values for those provinces with more inhabitants value more, in order to get to a final daily number.")
 
 #Datetime filter
 
