@@ -15,7 +15,7 @@ Anyone interested in time series forecasting might find this project interesting
 
 ## Methodology
 
-Documentation and Notebooks in this repository cover steps from **Data Adquistion**, to **Data Cleansing** and **Pre-Processing**, along with ***Data Analysis** and **Modelling** and the design of an interactive **Front-End**. 
+Documentation and Notebooks in this repository cover steps from **Data Adquistion** to **Data Cleansing** and **Pre-Processing**, along with **Data Analysis** and **Modelling** and the design of an interactive **Front-End**. 
 
 
 ### Data
@@ -43,17 +43,17 @@ The predictions made using data up to September 2021 without handling outliers i
 
 When modelling, two types of common time series forecasting methods were used:
 
-- ARIMA, univariate time series, using only the past Electricity prices to forecast themselves.
+- **ARIMA**, univariate time series, using only the past Electricity prices to forecast themselves.
 
 **ARIMA(10,1,0)**
 
-![ARIMA](/images/ARIMA(10%2C1%2C0.png)
+![ARIMA](/images/ARIMA1010.png)
 
 **ARIMA(4,1,5)**
 
-![ARIMA](/images/ARIMA(4%2C1%2C5.png)
+![ARIMA](images/ARIMA415.png)
 
-- Vector Auto Regression (VAR), multivariate time series.
+- **Vector Auto Regression (VAR)**, multivariate time series.
 
 **VAR Forecast from October 2021**
 
@@ -64,7 +64,7 @@ In order to be able to use this models, autocorrelation in the data was tested, 
 
 ## Fron-End
 
-You can see the results of this project in this [interactive web app](https://share.streamlit.io/paulacervilla/streamlit-app/Front-end-script.py), that was done with Streamlit.
+You can see the results of this project in this [interactive web app](https://share.streamlit.io/paulacervilla/streamlit-app/Front-end-script.py), that was done using Streamlit.
 
 ![Front-end](/front%20end%20streamlit/GIF_frontend.gif)
 
