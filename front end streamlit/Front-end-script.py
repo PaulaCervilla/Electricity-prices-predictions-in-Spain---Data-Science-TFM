@@ -311,7 +311,7 @@ st.line_chart(filtered_df2['Total €/MWh + Predictions'])
 
 #VAR model
 
-st.subheader("Relationships between different variables were studied and used to predict electricity prices and themselves. This was done using a Vector Autoregresion Model (VAR).")
+st.subheader("Relationships between different variables were studied and used to predict electricity prices and themselves. This was done using a Vector Auto Regresion Model (VAR).")
 
 st.write('In a VAR model, each variable is a linear function of the past values of itself and the past values of all the other variables.')
 
@@ -377,7 +377,7 @@ st.subheader('Average Wind Speed (Km/h) 2013-2021')
 st.line_chart(electricity_brent_weather["Vmax"])
 
 with st.expander("Notes"):
-     st.write("Weather data from 737 weather stations was used. In oder to get to a single daily value, a weighted average by each Spanish province population was done. In this way, the values for those provinces with more inhabitants value more, in order to get to a final daily number.")
+     st.write("Weather data from 737 weather stations was used. In oder to get to a single daily value, a weighted average by each Spanish province population was done. In this way, the values for those provinces with more inhabitants were more important, in order to get to a final daily number.")
 
 #Datetime filter
 
