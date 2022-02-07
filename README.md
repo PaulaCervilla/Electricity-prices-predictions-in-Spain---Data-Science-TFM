@@ -15,7 +15,7 @@ Anyone interested in time series forecasting might find this project interesting
 
 ## Methodology
 
-Documentation and Notebooks in this repository cover steps from **Data Acquistion** to **Data Cleansing** and **Pre-Processing**, along with **Data Analysis** and **Modelling** and the design of an interactive **Front-End**. 
+Documentation and Notebooks in this repository cover steps from **Data Acquisition** to **Data Cleansing** and **Pre-Processing**, along with **Data Analysis** and **Modelling** and the design of an interactive **Front-End**. 
 
 
 ### Data
