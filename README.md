@@ -27,9 +27,15 @@ Data from different sources was used and could be categorised in four sections:
 - **Weather** variables data
 - **Population** data
 
-### Conda Environment
+### Conda and Pip Environments
 
-Python 3.9 was the coding language used along this project. In order to maintain replicability, a [Conda environment](/tfm-environment7.yml) was created and saved in a .yml file.
+Python 3.9 was the coding language used along this project. In order to maintain replicability, a [Conda environment](/tfm-environment9.yml) was created and saved in a .yml file. This Conda environment should work if you are working on Linux.
+If you have a different operating system, please use this [Conda environment](/tfm-environment8.yml) instead.
+
+If you experience any issues installing the Conda environments above, please install the [pip environment](/requirements-tfm3.txt). 
+
+Please follow the intructions in section *Methodology > 1. Introduction: Conda and Pip Environments* of [the documentation](/Masters%20dissertation%20-%20Electricity%20prices%20predictions%20in%20Spain%20--%20Paula%20Cervilla%20García.pdf).
+
 
 ### Modelling
 
