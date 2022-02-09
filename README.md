@@ -30,7 +30,7 @@ Data from different sources was used and could be categorised in four sections:
 ### Conda and Pip Environments
 
 Python 3.9 was the coding language used along this project. In order to maintain replicability, a [Conda environment](/tfm-environment9.yml) was created and saved in a .yml file. This Conda environment should work if you are working on Linux.
-If you have a different operating system, please use this [Conda environment](/tfm-environment10.yml) instead.
+If you have a different operating system, please use this [Conda environment](/tfm-environment10.yml) instead (this one also works on Linux, in case you have any problems with the other one).
 
 If you experience any issues installing the Conda environments above, please install the [pip environment](/requirements-tfm3.txt). 
 
